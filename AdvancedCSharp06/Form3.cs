@@ -44,7 +44,7 @@ namespace AdvancedCSharp06
 
       // ayrı bir iş parçacığı açtık
       Task t1 = new Task(ListBox1Doldur);
-      t1.Start(); // thread başlattık
+       t1.Start(); // thread başlattık
 
       Task t2 = new Task(ListBox2Doldur);
       t2.Start();
@@ -52,9 +52,17 @@ namespace AdvancedCSharp06
       Task t3 = new Task(ListBox3Doldur);
       t3.Start();
 
-      string response = await GetValue();
+      //  task-based asynchronous pattern (TAP)
 
-      await GetVoid();
+      Task.WaitAll(t1, t2, t3); // parelel olarak işlem yap. Promise All yapısına benzer paralelde hepsi birilite çalışır.
+      // aynı anda hepsini çöz yapısı
+
+
+
+
+      //string response = await GetValue(); // Thread response üzerinde işlem yapma gibi bir yetenek maalesef yok
+
+      // await GetVoid();
     }
 
     private async void ListBox1Doldur()
@@ -90,6 +98,8 @@ namespace AdvancedCSharp06
     public async Task<string> GetValue()
     {
       await Task.Run(ListBox1Doldur);
+
+     
 
       return await Task.FromResult<string>("Bitti");
 

@@ -67,5 +67,10 @@ namespace AdvancedCSharp06
         MessageBox.Show($"Veri Uzunluğu {result.Length}");
       }
     }
+
+    private void Form4_Load(object sender, EventArgs e)
+    {
+
+    }
   }
 }

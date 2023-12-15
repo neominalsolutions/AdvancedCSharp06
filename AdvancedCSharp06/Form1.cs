@@ -48,6 +48,7 @@ namespace AdvancedCSharp06
       {
         Thread.Sleep(1000); // 1 saniye de bir girilsin
         listBox3.Items.Add(i);
+        
       }
     }
   }
