@@ -37,8 +37,11 @@ namespace AdvancedCSharp06
     {
       for (int i = 1; i <= 3; i++)
       {
+
+
         Thread.Sleep(1000); // 1 saniye de bir girilsin
-        listBox1.Items.Add(i);
+
+        listBox1.Items.Add($"{i}, threadId: {Thread.CurrentThread.ManagedThreadId}");
       }
     }
 
@@ -47,7 +50,8 @@ namespace AdvancedCSharp06
       for (int i = 1; i <= 3; i++)
       {
         Thread.Sleep(1000); // 1000 ms 1 saniye de bir girilsin
-        listBox2.Items.Add(i);
+
+        listBox2.Items.Add($"{i}, threadId: {Thread.CurrentThread.ManagedThreadId}");
       }
     }
 
@@ -56,7 +60,9 @@ namespace AdvancedCSharp06
       for (int i = 1; i <= 3; i++)
       {
         Thread.Sleep(1000); // 1 saniye de bir girilsin
-        listBox3.Items.Add(i);
+
+
+        listBox3.Items.Add($"{i}, threadId: {Thread.CurrentThread.ManagedThreadId}");
       }
     }
 

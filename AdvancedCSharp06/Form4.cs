@@ -26,7 +26,7 @@ namespace AdvancedCSharp06
       // Js de bir işlemi kesip kod blogunun devam etmesi sağlanarak. callback yapıları ile kaynak kodu paralel de yürütülemesi için kullanılıyorsaç
       httpWebRequest.BeginGetResponse(new AsyncCallback(ResponseCallBack), httpWebRequest);
 
-      MessageBox.Show("İşlem Async bırakıldı");
+      //MessageBox.Show("İşlem Async bırakıldı");
 
     }
 
@@ -34,6 +34,8 @@ namespace AdvancedCSharp06
     {
 
       HttpWebRequest request = (HttpWebRequest)asyncResult.AsyncState;
+
+     
 
       try
       {

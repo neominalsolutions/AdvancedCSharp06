@@ -54,10 +54,7 @@ namespace AdvancedCSharp06
 
       //  task-based asynchronous pattern (TAP)
 
-      Task.WaitAll(t1, t2, t3); // parelel olarak işlem yap. Promise All yapısına benzer paralelde hepsi birilite çalışır.
-      // aynı anda hepsini çöz yapısı
-
-
+     await Task.WhenAll(t1, t2, t3); 
 
 
       //string response = await GetValue(); // Thread response üzerinde işlem yapma gibi bir yetenek maalesef yok
@@ -69,7 +66,7 @@ namespace AdvancedCSharp06
     {
       for (int i = 1; i <= 3; i++)
       {
-        await Task.Delay(1000); // 1 saniye de bir girilsin
+         Task.Delay(1000); // 1 saniye de bir girilsin
         // sıralı bir veri tabanı işlemi söz konusu ise bu durumda await yapısı ile kodu bekletip result alıp yola devam edebiliriz
         listBox1.Items.Add($"{i}, threadId: {Thread.CurrentThread.ManagedThreadId}" );
         
@@ -80,7 +77,7 @@ namespace AdvancedCSharp06
     {
       for (int i = 1; i <= 3; i++)
       {
-        await Task.Delay(1000); // 1000 ms 1 saniye de bir girilsin
+         Task.Delay(1000); // 1000 ms 1 saniye de bir girilsin
         listBox2.Items.Add($"{i}, threadId: {Thread.CurrentThread.ManagedThreadId}");
       }
     }
@@ -89,7 +86,7 @@ namespace AdvancedCSharp06
     {
       for (int i = 1; i <= 3; i++)
       {
-        await Task.Delay(1000); // 1 saniye de bir girilsin
+         Task.Delay(1000); // 1 saniye de bir girilsin
         listBox3.Items.Add($"{i}, threadId: {Thread.CurrentThread.ManagedThreadId}");
       }
     }
