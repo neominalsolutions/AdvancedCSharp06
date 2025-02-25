@@ -44,7 +44,10 @@ namespace AdvancedCSharp06
 
       // ayrı bir iş parçacığı açtık
       Task t1 = new Task(ListBox1Doldur);
-       t1.Start(); // thread başlattık
+
+      // Parallel.Invoke(ListBox1Doldur, ListBox2Doldur, ListBox3Doldur);
+
+      t1.Start(); // thread başlattık
 
       Task t2 = new Task(ListBox2Doldur);
       t2.Start();
@@ -54,7 +57,7 @@ namespace AdvancedCSharp06
 
       //  task-based asynchronous pattern (TAP)
 
-     await Task.WhenAll(t1, t2, t3); 
+     //await Task.WhenAll(t1, t2, t3); 
 
 
       //string response = await GetValue(); // Thread response üzerinde işlem yapma gibi bir yetenek maalesef yok
@@ -62,11 +65,11 @@ namespace AdvancedCSharp06
       // await GetVoid();
     }
 
-    private async void ListBox1Doldur()
+    private  async void ListBox1Doldur()
     {
       for (int i = 1; i <= 3; i++)
       {
-         Task.Delay(1000); // 1 saniye de bir girilsin
+         await Task.Delay(1000); // 1 saniye de bir girilsin
         // sıralı bir veri tabanı işlemi söz konusu ise bu durumda await yapısı ile kodu bekletip result alıp yola devam edebiliriz
         listBox1.Items.Add($"{i}, threadId: {Thread.CurrentThread.ManagedThreadId}" );
         
@@ -77,7 +80,7 @@ namespace AdvancedCSharp06
     {
       for (int i = 1; i <= 3; i++)
       {
-         Task.Delay(1000); // 1000 ms 1 saniye de bir girilsin
+        await Task.Delay(1000); // 1000 ms 1 saniye de bir girilsin
         listBox2.Items.Add($"{i}, threadId: {Thread.CurrentThread.ManagedThreadId}");
       }
     }
@@ -86,7 +89,7 @@ namespace AdvancedCSharp06
     {
       for (int i = 1; i <= 3; i++)
       {
-         Task.Delay(1000); // 1 saniye de bir girilsin
+        await Task.Delay(1000); // 1 saniye de bir girilsin
         listBox3.Items.Add($"{i}, threadId: {Thread.CurrentThread.ManagedThreadId}");
       }
     }

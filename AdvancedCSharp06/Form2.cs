@@ -15,10 +15,13 @@ namespace AdvancedCSharp06
     public Form2()
     {
       InitializeComponent();
+      txtSearch.Text = "Thread " + Thread.CurrentThread.ManagedThreadId;
     }
 
     private void btnFill_Click(object sender, EventArgs e)
     {
+
+
       // çapraz thread çağırısı için bu özelliği windows form ortamında açtık
       Control.CheckForIllegalCrossThreadCalls = false;
 
@@ -66,6 +69,9 @@ namespace AdvancedCSharp06
       }
     }
 
+    private void txtSearch_TextChanged(object sender, EventArgs e)
+    {
 
+    }
   }
 }

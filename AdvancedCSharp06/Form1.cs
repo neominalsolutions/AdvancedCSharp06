@@ -16,6 +16,7 @@ namespace AdvancedCSharp06
 
     private void ListBox1Doldur()
     {
+      // UI Thread de çalýþýyoruz.
       for (int i = 1; i <= 3; i++)
       {
         Thread.Sleep(1000); // 1 saniye de bir girilsin
